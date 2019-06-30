@@ -3,3 +3,4 @@
 - include: node.yml
 - include: ssh.yml
 - include: py.yml
+- include: gcloud.yml
