@@ -3,7 +3,7 @@
   become: yes
   become_method: sudo
   roles:
-  - role: /home/user/projects/workstation-setup/java-dev
+  - role: /home/user/projects/workstation-setup/dev
   - role: gantsign.intellij
     intellij_default_jdk: '1.8'
     intellij_disabled_plugins:
