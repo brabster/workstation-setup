@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  roles:
+  - role: /home/user/projects/workstation-setup/java-dev
+  - role: gantsign.intellij
+    intellij_default_jdk: '1.8'
+    intellij_disabled_plugins:
+    - org.jetbrains.plugins.gradle
+    - CVS
+    - com.intellij.uiDesigner
+    - org.jetbrains.android
+    - TestNG-J
+    - hg4idea
+    - Subversion
+    - AntSupport
+    - DevKit
+    intellij_codestyles:
+    - name: GoogleStyle
+      url: 'https://raw.githubusercontent.com/google/styleguide/gh-pages/intellij-java-google-style.xml'
+    intellij_default_codestyle: GoogleStyle
+    intellij_plugins:
+    - CheckStyle-IDEA

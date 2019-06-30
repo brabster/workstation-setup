@@ -1,0 +1,5 @@
+---
+# tasks file for java-dev
+- package: name=java-1.8.0-openjdk-devel state=installed
+- package: name=java-latest-openjdk-devel state=installed
+- package: name=maven state=installed
