@@ -2,3 +2,4 @@
 # tasks file for java-dev
 - include: jdk.yml
 - include: node.yml
+- include: ssh.yml

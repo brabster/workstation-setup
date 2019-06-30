@@ -1,5 +1,11 @@
 ---
 # tasks file for java-dev
-- package: name=java-1.8.0-openjdk-devel state=installed
-- package: name=java-latest-openjdk-devel state=installed
-- package: name=maven state=installed
+- name: Install JDK 1.8
+  become: yes
+  package: name=java-1.8.0-openjdk-devel state=present
+- name: Install Latest JDK
+  become: yes
+  package: name=java-latest-openjdk-devel state=present
+- name: Install Latest Maven
+  become: yes
+  package: name=maven state=present

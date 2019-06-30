@@ -1,10 +1,12 @@
 ---
 - hosts: localhost
-  become: yes
   become_method: sudo
   roles:
+  - role: geerlingguy.docker
+    become: yes
   - role: /home/user/projects/workstation-setup/dev
   - role: gantsign.intellij
+    become: yes
     intellij_default_jdk: '1.8'
     intellij_disabled_plugins:
     - org.jetbrains.plugins.gradle
