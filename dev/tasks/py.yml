@@ -1,0 +1,7 @@
+---
+- name: Install pipenv
+  become: yes
+  package:
+    name: pipenv
+    state: present
+
