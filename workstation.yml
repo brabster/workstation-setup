@@ -2,6 +2,7 @@
 - hosts: localhost
   become_method: sudo
   roles:
+  - role: ./dev
   - role: avanov.pyenv
     pyenv_python_versions:
     - "3.7.0"
@@ -11,8 +12,9 @@
   - role: geerlingguy.docker
     become: yes
     docker_users:
-    - "user"
-  - role: /home/user/projects/workstation-setup/dev
+    - "paul"
+    docker_yum_repo_enable_test: "true"
+    docker_yum_repo_enable_edge: "false"
   - role: gantsign.intellij
     become: yes
     intellij_default_jdk: '1.8'

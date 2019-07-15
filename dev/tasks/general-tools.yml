@@ -1,0 +1,7 @@
+---
+- name: Install httpie
+  become: yes
+  package: name=httpie state=present
+- name: Install jq
+  become: yes
+  package: name=jq state=present

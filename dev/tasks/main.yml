@@ -1,6 +1,12 @@
 ---
+- include: xfce.yml
+- include: general-tools.yml
+- include: chrome.yml
+- include: flatpak.yml
 - include: jdk.yml
 - include: node.yml
 - include: ssh.yml
 - include: py.yml
 - include: gcloud.yml
+- include: boxes.yml
+- include: slack.yml

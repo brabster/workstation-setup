@@ -1,0 +1,36 @@
+- name: XFCE Config - remove bottom panel
+  xfconf: channel=xfce-panel property=/panels/panel-2 value_type=int value=0 state=absent
+- name: XFCE Config - remove unused plugins
+  xfconf: channel=xfce-panel property=/plugins/plugin-7 value_type=int value=0 state=absent
+- name: XFCE Config - remove unused plugins
+  xfconf: channel=xfce-panel property=/plugins/plugin-8 value_type=int value=0 state=absent
+- name: XFCE Config - remove unused plugins
+  xfconf: channel=xfce-panel property=/plugins/plugin-9 value_type=int value=0 state=absent
+- name: XFCE Config - remove unused workspaces
+  xfconf: channel=xfwm4 property=/general/workspace_count value_type=int value=1
+- name: XFCE Config - super-l
+  xfconf: channel=xfce4-keyboard-shortcuts property=/commands/custom/<Super>l value_type=string value=xflock4
+- name: XFCE Config - super-t
+  xfconf: channel=xfce4-keyboard-shortcuts property=/commands/custom/<Super>t value_type=string value=xfce4-terminal
+- name: XFCE Config - window snapping
+  xfconf: channel=xfce4-keyboard-shortcuts property=/xfwm4/custom/<Super>a value_type=string value=tile_left_key
+- name: XFCE Config - window snapping
+  xfconf: channel=xfce4-keyboard-shortcuts property=/xfwm4/custom/<Super>c value_type=string value=tile_down_right_key
+- name: XFCE Config - window snapping
+  xfconf: channel=xfce4-keyboard-shortcuts property=/xfwm4/custom/<Super>d value_type=string value=tile_right_key
+- name: XFCE Config - window snapping
+  xfconf: channel=xfce4-keyboard-shortcuts property=/xfwm4/custom/<Super>e value_type=string value=tile_up_right_key
+- name: XFCE Config - window snapping
+  xfconf: channel=xfce4-keyboard-shortcuts property=/xfwm4/custom/<Super>q value_type=string value=tile_up_left_key
+- name: XFCE Config - window snapping
+  xfconf: channel=xfce4-keyboard-shortcuts property=/xfwm4/custom/<Super>w value_type=string value=tile_up_key
+- name: XFCE Config - window snapping
+  xfconf: channel=xfce4-keyboard-shortcuts property=/xfwm4/custom/<Super>x value_type=string value=tile_down_key
+- name: XFCE Config - window snapping
+  xfconf: channel=xfce4-keyboard-shortcuts property=/xfwm4/custom/<Super>z value_type=string value=tile_down_left_key
+- name: XFCE Config - maximise window
+  xfconf: channel=xfce4-keyboard-shortcuts property=/xfwm4/custom/<Super>s value_type=string value=maximize_window_key
+- name: XFCE Config - capslock is a second ctrl
+  copy: src=xinitrc dest="/home/paul/.xinitrc"
+
+
