@@ -1,5 +1,8 @@
 ---
+- include: security.yml
 - include: xfce.yml
+- include: cruft.yml
+- include: elasticsearch.yml
 - include: general-tools.yml
 - include: chrome.yml
 - include: flatpak.yml
