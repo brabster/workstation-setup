@@ -10,6 +10,4 @@
 - include: node.yml
 - include: ssh.yml
 - include: py.yml
-- include: gcloud.yml
-- include: boxes.yml
 - include: slack.yml

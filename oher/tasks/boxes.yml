@@ -1,0 +1,3 @@
+- name: Install Gnome Boxes
+  become: yes
+  package: name=gnome-boxes state=present

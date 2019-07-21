@@ -2,35 +2,5 @@
 - hosts: localhost
   become_method: sudo
   roles:
-  - role: ./dev
-  - role: avanov.pyenv
-    pyenv_python_versions:
-    - "3.7.0"
-    pyenv_virtualenvs:
-    - venv_name: "latest"
-      py_version: "3.7.0"
-  - role: geerlingguy.docker
-    become: yes
-    docker_users:
-    - "paul"
-    docker_yum_repo_enable_test: "true"
-    docker_yum_repo_enable_edge: "false"
-  - role: gantsign.intellij
-    become: yes
-    intellij_default_jdk: '1.8'
-    intellij_disabled_plugins:
-    - org.jetbrains.plugins.gradle
-    - CVS
-    - com.intellij.uiDesigner
-    - org.jetbrains.android
-    - TestNG-J
-    - hg4idea
-    - Subversion
-    - AntSupport
-    - DevKit
-    intellij_codestyles:
-    - name: GoogleStyle
-      url: 'https://raw.githubusercontent.com/google/styleguide/gh-pages/intellij-java-google-style.xml'
-    intellij_default_codestyle: GoogleStyle
-    intellij_plugins:
-    - CheckStyle-IDEA
+  - role: ./host
+  - role: ./workstation

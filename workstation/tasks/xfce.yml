@@ -3,7 +3,6 @@
 - name: XFCE Config - capslock is a second ctrl
   copy: src=xinitrc dest="/home/paul/.xinitrc"
 - name: Keyboard shortcuts
-  xfconf: channel=xfce4-keyboard-shortcuts property={{ item.prop }} state=absent
   xfconf: channel=xfce4-keyboard-shortcuts property={{ item.prop }} value_type=string value={{ item.val }}
   loop:
     - { prop: '/commands/custom/<Super>l', val: 'xflock4' }
