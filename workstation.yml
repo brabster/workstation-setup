@@ -2,5 +2,4 @@
 - hosts: localhost
   become_method: sudo
   roles:
-  - role: ./host
   - role: ./workstation

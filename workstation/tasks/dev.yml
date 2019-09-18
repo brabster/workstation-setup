@@ -1,0 +1,6 @@
+- name: Configure file watchers for IDEs, build tooling
+  become: yes
+  sysctl:
+    name: fs.inotify.max_user_watches
+    value: '528288'
+    state: present

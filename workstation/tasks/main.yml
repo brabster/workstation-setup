@@ -1,4 +1,5 @@
 ---
+- include: dev.yml
 - include: security.yml
 - include: xfce.yml
 - include: cruft.yml
