@@ -20,4 +20,6 @@
     - { prop: '/commands/custom/AudioMicMute', val: 'amixer set Capture toggle' }
     - { prop: '/commands/custom/<Super>F1', val: 'amixer set Master toggle' }
     - { prop: '/commands/custom/<Super>F3', val: 'amixer set Master 5%+' }
+    - prop: '/commands/custom/<Super>v'
+      val: sh -c 'sleep 0.2; xdotool type --clearmodifiers "$(xclip -o -selection clipboard)"'
 
