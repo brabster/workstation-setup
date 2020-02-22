@@ -1,3 +1,5 @@
+---
+# tasks file for chrome-browser
 - name: Add Google Chrome repo
   become: true
   package: name=fedora-workstation-repositories state=present

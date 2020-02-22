@@ -1,0 +1,7 @@
+- name: Setup updates
+  become: yes
+  dnf:
+    name:
+      - dnfdragora
+      - fwupd
+    state: present

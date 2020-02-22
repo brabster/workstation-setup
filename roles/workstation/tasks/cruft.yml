@@ -3,7 +3,6 @@
   dnf:
     autoremove: yes
     name:
-      - dnfdragora
       - asunder
       - pragha
       - xfburn

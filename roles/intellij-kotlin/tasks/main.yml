@@ -1,5 +1,11 @@
 ---
 # tasks file for intellij-kotlin
+- name: Install JDK 1.8
+  become: yes
+  package: name=java-1.8.0-openjdk-devel state=present
+- name: Install JDK 11
+  become: yes
+  package: name=java-11-openjdk-devel state=present
 - include_role:
     name: gantsign.intellij
     apply:

@@ -1,12 +1,11 @@
 ---
 - include: security.yml
 - include: xfce.yml
+- include: docker.yml
+- include: updates.yml
 - include: cruft.yml
 - include: elasticsearch.yml
 - include: general-tools.yml
-- include: chrome.yml
 - include: flatpak.yml
-- include: jdk.yml
 - include: node.yml
-- include: ssh.yml
 - include: slack.yml

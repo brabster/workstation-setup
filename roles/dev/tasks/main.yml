@@ -8,3 +8,13 @@
     state: present
 - name: Setup git username and email
   copy: src=.gitconfig dest="/home/paul/.gitconfig"
+- name: Create SSH dir
+  file:
+    path: "{{ ansible_env.HOME }}/.ssh"
+    state: directory
+    mode: '0700'
+- name: Generate SSH key
+  openssh_keypair:
+    path: "{{ ansible_env.HOME }}/.ssh/id_ssh"
+    type: rsa
+    size: 2048
