@@ -1,5 +1,4 @@
 ---
-- include: dev.yml
 - include: security.yml
 - include: xfce.yml
 - include: cruft.yml
@@ -10,5 +9,4 @@
 - include: jdk.yml
 - include: node.yml
 - include: ssh.yml
-- include: py.yml
 - include: slack.yml
