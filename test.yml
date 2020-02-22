@@ -2,6 +2,4 @@
 - hosts: localhost
   become_method: sudo
   roles:
-  - role: ./roles/workstation
   - role: ./roles/intellij-kotlin
-  - role: ./roles/vscode-python

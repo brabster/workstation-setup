@@ -1,0 +1,14 @@
+- name: Remove unneeded packages
+  become: yes
+  dnf:
+    autoremove: yes
+    name:
+      - dnfdragora
+      - asunder
+      - pragha
+      - xfburn
+      - parole
+      - claws-mail
+      - pidgin
+      - transmission
+    state: absent
