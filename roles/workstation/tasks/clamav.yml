@@ -1,0 +1,12 @@
+---
+- include_role:
+    name: geerlingguy.clamav
+    apply:
+      vars:
+        ansible_become: yes
+        clamav_daemon_configuration_changes:
+            - regexp: '^.*Example$'
+              state: absent
+            - regexp: '^.*LocalSocket .*$'
+              line: 'LocalSocket {{ clamav_daemon_localsocket }}'
+            

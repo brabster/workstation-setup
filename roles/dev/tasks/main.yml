@@ -18,3 +18,10 @@
     path: "{{ ansible_env.HOME }}/.ssh/id_ssh"
     type: rsa
     size: 2048
+- name: Install general cli tools
+  become: yes
+  dnf:
+    name:
+      - jq
+      - httpie
+    state: present
