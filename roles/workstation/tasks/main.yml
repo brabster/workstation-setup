@@ -1,11 +1,12 @@
 ---
+- include: bin.yml
+- include: updates.yml
+- include: tools.yml
 - include: xfce.yml
 - include: security.yml
 - include: clamav.yml
 - include: docker.yml
-- include: updates.yml
 - include: cruft.yml
 - include: elasticsearch.yml
 - include: flatpak.yml
-- include: node.yml
 - include: slack.yml

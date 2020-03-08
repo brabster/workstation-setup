@@ -5,3 +5,4 @@
   - role: ./roles/workstation
   - role: ./roles/intellij-kotlin
   - role: ./roles/vscode-python
+  - role: ./roles/nodejs

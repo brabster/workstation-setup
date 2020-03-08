@@ -1,7 +1,13 @@
-- name: Setup updates
+- name: Setup firmare updates
   become: yes
   dnf:
     name:
-      - dnfdragora
       - fwupd
     state: present
+- name: Setup update script
+  copy:
+    src: update
+    dest: ~/bin/update
+    owner: paul
+    group: paul
+    mode: '0755'
