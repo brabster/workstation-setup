@@ -4,7 +4,6 @@
 - include: tools.yml
 - include: xfce.yml
 - include: security.yml
-- include: clamav.yml
 - include: docker.yml
 - include: cruft.yml
 - include: elasticsearch.yml
