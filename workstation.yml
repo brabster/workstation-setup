@@ -3,6 +3,7 @@
   become_method: sudo
   roles:
   - role: ./roles/workstation
+  - role: ./roles/lastpass
   - role: ./roles/intellij-kotlin
   - role: ./roles/vscode-python
   - role: ./roles/nodejs
