@@ -6,6 +6,5 @@
 - include: security.yml
 - include: docker.yml
 - include: cruft.yml
-- include: elasticsearch.yml
 - include: flatpak.yml
 - include: slack.yml
