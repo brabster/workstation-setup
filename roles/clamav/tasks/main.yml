@@ -41,6 +41,7 @@
 - name: Check for new virus signatures as part of usual update
   lineinfile:
     path: ~/bin/update
+    regexp: 'freshclam'
     line: sudo freshclam
 
 - name: Ensure clamonacc daemon starts on login
