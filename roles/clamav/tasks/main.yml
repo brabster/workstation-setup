@@ -46,5 +46,6 @@
 - name: Ensure clamonacc daemon starts on login
   lineinfile:
     path: ~/.bash_profile
+    regexp: 'clamonacc'
     line: sudo clamonacc
     
