@@ -1,0 +1,24 @@
+- name: Remove unneeded packages
+  become: yes
+  dnf:
+    autoremove: yes
+    name:
+      - asunder
+      - pragha
+      - xfburn
+      - parole
+      - claws-mail
+      - pidgin
+      - transmission
+      - bluez-cups
+      - bluez-libs
+      - bluez-obexd
+      - bluez
+      - xfce4-weather-plugin
+      - sssd-ad
+      - sssd-kcm
+      - sssd-krb5
+      - sssd-krb5-common
+      - sssd-ldap
+      - sssd-nfs-idmap
+    state: absent

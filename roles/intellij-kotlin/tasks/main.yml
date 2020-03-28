@@ -1,0 +1,31 @@
+---
+# tasks file for intellij-kotlin
+- name: Install JDK 1.8
+  become: yes
+  package: name=java-1.8.0-openjdk-devel state=present
+- name: Install JDK 11
+  become: yes
+  package: name=java-11-openjdk-devel state=present
+- include_role:
+    name: gantsign.intellij
+    apply:
+      vars:
+        ansible_become: yes
+        intellij_default_jdk: '1.8'
+        intellij_disabled_plugins:
+        - org.jetbrains.plugins.gradle
+        - CVS
+        - com.intellij.uiDesigner
+        - org.jetbrains.android
+        - TestNG-J
+        - hg4idea
+        - Subversion
+        - AntSupport
+        - DevKit
+        intellij_codestyles:
+        - name: GoogleStyle
+          url: 'https://raw.githubusercontent.com/google/styleguide/gh-pages/intellij-java-google-style.xml'
+        intellij_default_codestyle: GoogleStyle
+        intellij_plugins:
+        - CheckStyle-IDEA
+        

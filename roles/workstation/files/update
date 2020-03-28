@@ -1,0 +1,7 @@
+#!/bin/bash -eux
+
+sudo dnf update
+
+flatpak update
+
+fwupdmgr get-updates || fwupdmgr update

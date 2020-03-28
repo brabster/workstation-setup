@@ -1,2 +1,0 @@
-- name: Lock before suspending
-  xfconf: channel=xfce4-session property='/shutdown/LockScreen' value_type=bool value=true

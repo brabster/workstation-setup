@@ -1,0 +1,22 @@
+---
+# tasks file for lastpass
+- name: "Fetch latest LastPass Linux install"
+  get_url:
+    url: https://download.cloud.lastpass.com/linux/lplinux.tar.bz2
+    checksum: sha256:905474aceb9998ba25118c572f727336d239a146aad705207f78cacf9052ea29
+    dest: ~/Downloads/lplinux.tar.bz2
+
+- name: Create LastPass extract dir
+  file:
+    path: ~/Downloads/lplinux
+    state: directory
+
+- name: Decompress LastPass archive
+  unarchive:
+    src: ~/Downloads/lplinux.tar.bz2
+    dest: ~/Downloads/lplinux
+
+- name: Install LastPass plugins
+  command: ./install_lastpass.sh
+  args:
+    chdir: ~/Downloads/lplinux

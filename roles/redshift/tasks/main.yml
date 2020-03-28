@@ -1,0 +1,16 @@
+---
+# tasks file for redshift
+- include_role:
+    name: gvillalta99.redshift
+    apply:
+      vars:
+        ansible_become: yes
+        location:
+          latitude: 53
+          longitude: -1
+
+- name: Enable Redshift systemd unit
+  systemd:
+    name: redshift.service
+    enabled: yes
+    scope: user

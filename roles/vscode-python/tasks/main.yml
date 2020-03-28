@@ -1,0 +1,16 @@
+---
+# tasks file for vscode-python
+- name: Install pipenv
+  become: yes
+  package:
+    name: pipenv
+    state: present
+- include_role:
+    name: gantsign.visual-studio-code
+    apply:
+      vars:
+        users:
+          - username: paul
+            visual_studio_code_extensions:
+              - ms-python.python
+

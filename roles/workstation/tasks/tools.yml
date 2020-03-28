@@ -1,0 +1,6 @@
+- name: Add useful tools
+  become: yes
+  dnf:
+    name:
+      - htop
+    state: present

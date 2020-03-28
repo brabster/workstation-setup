@@ -1,0 +1,61 @@
+---
+# tasks file for clamav
+- include_role:
+    name: geerlingguy.clamav
+    apply:
+      vars:
+        ansible_become: yes
+        clamav_daemon_configuration_changes:
+            - regexp: '^.*Example$'
+              state: absent
+            - regexp: '^.*LocalSocket .*$'
+              line: 'LocalSocket {{ clamav_daemon_localsocket }}'
+            - regexp: '^.*OnAccessIncludePath .*$'
+              line: 'OnAccessIncludePath /home/{{ ansible_user_id }}/Downloads'
+            - regexp: '^.*OnAccessPrevention .*$'
+              line: 'OnAccessPrevention yes'
+            - regexp: '^.*OnAccessExcludeUname .*$'
+              line: 'OnAccessExcludeUname clamscan'
+            - regexp: '^.*OnAccessExtraScanning .*$'
+              line: 'OnAccessExtraScanning yes'
+            - regexp: '^.*VirusEvent .*$'
+              line: 'VirusEvent notify-send "clamav virus detected: %v"'
+            - regexp: '^.*LogFile .*$'
+              line: 'LogFile /var/log/clamd.scan'
+            - regexp: '^.*LogFileMaxSize .*$'
+              line: 'LogFileMaxSize 10M'
+            - regexp: '^.*LogTime .*$'
+              line: 'LogTime yes'
+
+- name: Add clamscan to current users group for access to home directory contents
+  user:
+    name: clamscan
+    groups: '{{ ansible_user_id }}'
+    append: yes
+
+- name: Allow current user group execute access to ~/Downloads
+  file:
+    path: '/home/{{ ansible_user_id }}'
+    mode: '0750'
+
+- name: Check for new virus signatures as part of usual update
+  lineinfile:
+    path: ~/bin/update
+    regexp: 'freshclam'
+    line: sudo freshclam
+
+- name: Add clamonacc systemd unit
+  become: yes
+  copy:
+    src: clamonacc.service
+    dest: /etc/systemd/system/clamonacc.service
+
+- name: Enable clamonacc service
+  become: yes
+  systemd:
+    name: clamonacc.service
+    daemon_reload: yes
+    enabled: yes
+    scope: system
+    state: started
+    
