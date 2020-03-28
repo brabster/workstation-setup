@@ -1,0 +1,9 @@
+---
+- name: Install podman
+  become: yes
+  dnf:
+    autoremove: yes
+    names:
+    - podman
+    - podman-compose
+    state: present

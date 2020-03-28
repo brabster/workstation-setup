@@ -4,7 +4,7 @@
 - include: tools.yml
 - include: xfce.yml
 - include: security.yml
-- include: docker.yml
+- include: podman.yml
 - include: cruft.yml
 - include: flatpak.yml
 - include: slack.yml
