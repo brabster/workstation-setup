@@ -1,0 +1,11 @@
+[Unit]
+Description=ClamAV On-Access scanner
+After=clamd@scan.service
+
+[Service]
+ExecStart=/usr/bin/clamonacc -F
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

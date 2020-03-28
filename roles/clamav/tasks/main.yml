@@ -44,9 +44,18 @@
     regexp: 'freshclam'
     line: sudo freshclam
 
-- name: Ensure clamonacc daemon starts on login
-  lineinfile:
-    path: ~/.bash_profile
-    regexp: 'clamonacc'
-    line: sudo clamonacc
+- name: Add clamonacc systemd unit
+  become: yes
+  copy:
+    src: clamonacc.service
+    dest: /etc/systemd/system/clamonacc.service
+
+- name: Enable clamonacc service
+  become: yes
+  systemd:
+    name: clamonacc.service
+    daemon_reload: yes
+    enabled: yes
+    scope: system
+    state: started
     
