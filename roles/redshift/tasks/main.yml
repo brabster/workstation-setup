@@ -5,12 +5,20 @@
     apply:
       vars:
         ansible_become: yes
-        location:
-          latitude: 53
-          longitude: -1
 
+# not sure why the role isn't setting this, but anyway...
+- name: Setup lat/long info for Redshift
+  lineinfile:
+    dest: ~/.config/redshift.conf
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+  - {regexp: '^lat=', line: 'lat=53'}
+  - {regexp: '^lon=', line: 'lon=-1'}
+  
 - name: Enable Redshift systemd unit
   systemd:
     name: redshift.service
     enabled: yes
+    daemon_reload: yes
     scope: user
