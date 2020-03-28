@@ -10,3 +10,4 @@
   - role: ./roles/vscode-python
   - role: ./roles/nodejs
   - role: ./roles/k8s
+  - role: ./roles/gcloud
