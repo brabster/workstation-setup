@@ -1,5 +1,4 @@
 - src: avanov.pyenv
-- src: geerlingguy.docker
 - src: gantsign.intellij
 - src: gantsign.visual-studio-code
 - src: geerlingguy.clamav
