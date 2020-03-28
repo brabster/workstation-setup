@@ -1,8 +1,8 @@
 ---
+- include: xfce.yml
 - include: bin.yml
 - include: updates.yml
 - include: tools.yml
-- include: xfce.yml
 - include: security.yml
 - include: podman.yml
 - include: cruft.yml

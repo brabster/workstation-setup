@@ -4,6 +4,11 @@
   xfconf: channel=xfwm4 property=/general/workspace_count value_type=int value=1
 - name: XFCE Config - capslock is a second ctrl
   copy: src=xinitrc dest="/home/paul/.xinitrc"
+- name: Remove shortcuts that conflict with applications
+  xfconf: channel=xfce4-keyboard-shortcuts property={{ item.prop }} value_type=string value={{ item.val }} state=absent
+  loop:
+  - { prop: '/commands/custom/<Primary><Alt>l', val: dummy }
+  - { prop: '/commands/default/<Primary><Alt>l', val: dummy }
 - name: Keyboard shortcuts
   xfconf: channel=xfce4-keyboard-shortcuts property={{ item.prop }} value_type=string value={{ item.val }}
   loop:
