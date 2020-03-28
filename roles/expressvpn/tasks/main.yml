@@ -1,0 +1,11 @@
+---
+# tasks file for expressvpn
+# - name: Install ExpressVPN RPM key
+#   rpm_key:
+#     key: 'https://download.expressvpn.xyz/clients/linux/expressvpn-2.4.4.19-1.x86_64.rpm.asc'
+#     state: present
+- name: Install ExpressVPN
+  become: yes
+  dnf:
+    name: 'https://download.expressvpn.xyz/clients/linux/expressvpn-2.4.4.19-1.x86_64.rpm'
+    state: present
