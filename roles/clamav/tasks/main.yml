@@ -1,18 +1,26 @@
 ---
 # tasks file for clamav
-- name: Ensure log file is available for clamd
-  become: yes
-  file:
-    path: /var/log/clamd.scan
-    owner: clamscan
-    state: touch
-    mode: '0750'
+- name: Fetch eicar.com safe virus signature file to check AV on access scanning is working
+  get_url:
+    url: https://secure.eicar.org/eicar.com
+    dest: '/home/{{ ansible_user_id }}/Downloads/eicar.com'
+    mode: '0644'
+  ignore_errors: true
 
-- name: SELinux for log file
-  become: yes
-  sefcontext:
-    target: '/var/log/clamd.scan'
-    setype: antivirus_log_t
+  # need to use clamscan user but doesn't exist yet
+  #- name: Ensure log file is available for clamd
+  #become: yes
+  #file:
+  #  path: /var/log/clamd.scan
+  #  owner: clamscan
+  #  state: touch
+  #  mode: '0750'
+
+  #- name: SELinux for log file
+  #become: yes
+  #sefcontext:
+  #  target: '/var/log/clamd.scan'
+  #  setype: antivirus_log_t
 
 - name: SELinux for system
   become: yes
@@ -31,8 +39,10 @@
               state: absent
             - regexp: '^.*LocalSocket .*$'
               line: 'LocalSocket {{ clamav_daemon_localsocket }}'
-            - regexp: '^.*OnAccessIncludePath .*$'
+            - regexp: '^.*OnAccessIncludePath /home/{{ ansible_user_id }}/Downloads$'
               line: 'OnAccessIncludePath /home/{{ ansible_user_id }}/Downloads'
+            - regexp: '^.*OnAccessIncludePath /home/{{ ansible_user_id }}/bin$'
+              line: 'OnAccessIncludePath /home/{{ ansible_user_id }}/bin'
             - regexp: '^.*OnAccessPrevention .*$'
               line: 'OnAccessPrevention yes'
             - regexp: '^.*OnAccessExcludeUname .*$'
@@ -41,8 +51,8 @@
               line: 'OnAccessExtraScanning yes'
             - regexp: '^.*VirusEvent .*$'
               line: 'VirusEvent notify-send "clamav virus detected: %v"'
-            - regexp: '^.*LogFile .*$'
-              line: 'LogFile /var/log/clamd.scan'
+              #- regexp: '^.*LogFile .*$'
+              #  line: 'LogFile /var/log/clamd.scan'
             - regexp: '^.*LogFileMaxSize .*$'
               line: 'LogFileMaxSize 10M'
             - regexp: '^.*LogTime .*$'
