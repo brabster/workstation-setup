@@ -1,5 +1,4 @@
 ---
-- include: redshift.yml
 - include: bin.yml
 - include: updates.yml
 - include: tools.yml
