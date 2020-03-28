@@ -1,0 +1,6 @@
+---
+- name: Setup default preferences
+  become: yes
+  copy:
+    src: firefox-prefs.js
+    dest: /usr/lib64/firefox/browser/defaults/preferences/all-custom-prefs.js

@@ -1,5 +1,6 @@
 - name: Lock before suspending
   xfconf: channel=xfce4-session property='/shutdown/LockScreen' value_type=bool value=true
+
 - name: Allow passwordless sudo
   become: yes
   lineinfile:
@@ -8,6 +9,7 @@
     regexp: '^# %wheel\s+ALL=\(ALL\)\s+NOPASSWD:\s*ALL'
     line: '%wheel        ALL=(ALL)       NOPASSWD: ALL'
     validate: /usr/sbin/visudo -cf %s
+    
 - name: Remove existing mention of wheel group
   become: yes
   lineinfile:

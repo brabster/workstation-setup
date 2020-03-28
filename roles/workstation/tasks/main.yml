@@ -1,6 +1,7 @@
 ---
 - include: xfce.yml
 - include: bin.yml
+- include: firefox.yml
 - include: updates.yml
 - include: tools.yml
 - include: security.yml
