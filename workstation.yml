@@ -3,6 +3,8 @@
   become_method: sudo
   roles:
   - role: ./roles/workstation
+  - role: ./roles/clamav
+  - role: ./roles/dev
   - role: ./roles/lastpass
   - role: ./roles/expressvpn
   - role: ./roles/redshift
