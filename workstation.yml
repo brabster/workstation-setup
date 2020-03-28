@@ -4,6 +4,8 @@
   roles:
   - role: ./roles/workstation
   - role: ./roles/lastpass
+  - role: ./roles/expressvpn
+  - role: ./roles/redshift
   - role: ./roles/intellij-kotlin
   - role: ./roles/vscode-python
   - role: ./roles/nodejs
