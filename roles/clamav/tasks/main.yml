@@ -1,5 +1,26 @@
 ---
 # tasks file for clamav
+- name: Ensure log file is available for clamd
+  become: yes
+  file:
+    path: /var/log/clamd.scan
+    owner: clamscan
+    state: touch
+    mode: '0750'
+
+- name: SELinux for log file
+  become: yes
+  sefcontext:
+    target: '/var/log/clamd.scan'
+    setype: antivirus_log_t
+
+- name: SELinux for system
+  become: yes
+  seboolean:
+    name: antivirus_can_scan_system
+    state: yes
+    persistent: yes
+
 - include_role:
     name: geerlingguy.clamav
     apply:
@@ -28,6 +49,7 @@
               line: 'LogTime yes'
 
 - name: Add clamscan to current users group for access to home directory contents
+  become: yes
   user:
     name: clamscan
     groups: '{{ ansible_user_id }}'
