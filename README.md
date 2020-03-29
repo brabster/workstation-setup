@@ -14,11 +14,12 @@ sudo sh -c 'sudo dnf -y update &&
     ansible-galaxy install -r requirements.yml &&
     ansible-playbook -vv workstation.yml &&
     git remote rm origin &&
-    git remote add origin )' 
+    git remote add origin git@github.com:brabster/workstation-setup.git)'
 ```
 
 ## Post-Install
 
 - `cat ~/Downloads/eicar.com` (should fail with permissions issue)
+- `cat ~/.ssh/id_ssh.pub` Add new SSH key to Github, remove old key
 - ExpressVPN activate
 - Log into LastPass, set autofill to false
