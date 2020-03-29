@@ -4,6 +4,7 @@
     name:
       - fwupd
     state: present
+    
 - name: Setup update script
   copy:
     src: update
