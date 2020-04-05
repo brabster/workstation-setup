@@ -1,4 +1,5 @@
 ---
+- include: cruft.yml
 - include: xfce.yml
 - include: bin.yml
 - include: firefox.yml
@@ -6,6 +7,5 @@
 - include: tools.yml
 - include: security.yml
 - include: podman.yml
-- include: cruft.yml
 - include: flatpak.yml
 - include: slack.yml

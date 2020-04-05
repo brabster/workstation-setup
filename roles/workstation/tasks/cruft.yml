@@ -23,3 +23,14 @@
       - sssd-ldap
       - sssd-nfs-idmap
     state: absent
+
+- name: Shutdown unnecessary services
+  become: yes
+  systemd:
+    name: avahi-daemon.service
+    enabled: no
+    state: stopped
+    scope: system
+
+
+
