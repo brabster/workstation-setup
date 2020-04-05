@@ -4,15 +4,18 @@
 # from https://bugzilla.redhat.com/show_bug.cgi?id=1767564
 # semanage fcontext -a -t net_conf_t /var/lib/expressvpn/resolv.conf
 # restorecon -v /var/lib/expressvpn/resolv.conf
-- name: Fix SELinux settings for ExpressVPN
+- name: Fix SELinux settings for ExpressVPN resolv.conf file
   become: yes
   sefcontext:
     target: '/var/lib/expressvpn/resolv.conf'
     setype: "{{ item }}"
     state: present
   loop:
-    - net_conf_t
-    - dnsmasq_exec_t
+    - net_conf_t # for NetworkManager
+    - dnsmasq_exec_t # for dnsmasq
+    - named_exec_t # for unbound-anchor
+    - chronyd_exec_t # for chronyd
+
 
 
 # - name: Install ExpressVPN RPM key
