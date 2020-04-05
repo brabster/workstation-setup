@@ -58,7 +58,7 @@
             - regexp: '^.*LogTime .*$'
               line: 'LogTime yes'
 
-- name: Add clamscan to current users group for access to home directory contents
+- name: Add clamscan to current user group for access to home directory contents
   become: yes
   user:
     name: clamscan
@@ -90,4 +90,18 @@
     enabled: yes
     scope: system
     state: started
-    
+
+- name: Copy clamonacc check script
+  copy:
+    src: clamonacc-validate.sh
+    dest: ~/bin/clamonacc-validate.sh
+    mode: '0755'
+
+- name: Check clamonacc prevents access to sample virus file
+  command: '~/bin/clamonacc-validate.sh &'
+
+- name: Check clamonacc function on login
+  lineinfile:
+    path: ~/.bash_profile
+    regexp: clamonacc-validate.sh
+    line: '~/bin/clamonacc-validate.sh &'
