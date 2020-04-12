@@ -1,0 +1,8 @@
+---
+# tasks file for printer
+- name: Install Samsung Printer Drivers
+  become: yes
+  dnf:
+    name: splix
+    state: present
+    

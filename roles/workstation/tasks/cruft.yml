@@ -22,6 +22,52 @@
       - sssd-krb5-common
       - sssd-ldap
       - sssd-nfs-idmap
+      - catfish
+      - yelp
+      - xscreensaver-extras
+      - xscreensaver-extras-base
+      - cifs-utils
+      - cldr-emoji-annotation
+      - clutter
+      - criu
+      - enchant
+      - fprintd
+      - glx-utils
+      - gfs2-utils
+      - gssdp
+      - gutenprint
+      - iodine-client
+      - anaconda-install-env-deps
+      - iscsi-initiator-utils
+      - kyotocabinet-libs
+      - samba-client
+      - lrzsz
+      - mlocate
+      - ModemManager
+      - nfs-utils
+      - opensc
+      - openvpn
+      - orage
+      - pinentry
+      - pipewire
+      - ppp
+      - pptp
+      - realmd
+      - reiserfs-utils
+      - skkdic
+      - stoken-libx
+      - teamd
+      - telnet
+      - trousers
+      - trousers-lib
+      - vpnc
+      - words
+      ## virtualisation
+      - open-vm-tools
+      - hyperv-daemons
+      - qemu-guest-agent
+      - spice-vdagent
+      - virtualbox-guest-additions
     state: absent
 
 - name: Shutdown unnecessary services
