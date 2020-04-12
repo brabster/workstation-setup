@@ -1,0 +1,7 @@
+---
+# tasks file for clojure
+- name: Download Leiningen
+  get_url:
+    url: https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+    dest: ~/bin
+    mode: '0755'
