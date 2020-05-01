@@ -15,4 +15,5 @@
   - role: ./roles/k8s
   - role: ./roles/gcloud
   - role: ./roles/chromium-browser
+  - role: ./roles/firefox
 

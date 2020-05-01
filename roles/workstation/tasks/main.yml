@@ -1,7 +1,6 @@
 ---
 - include: cruft.yml
 - include: xfce.yml
-- include: firefox.yml
 - include: tools.yml
 - include: security.yml
 - include: podman.yml

@@ -1,4 +1,12 @@
 ---
+# tasks file for firefox
+- name: Ensure Firefox installed
+  become: yes
+  dnf:
+    name:
+      - firefox
+    state: present
+
 - name: Setup default preferences
   become: yes
   copy:
