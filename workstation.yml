@@ -5,15 +5,14 @@
   - role: ./roles/workstation
   - role: ./roles/clamav
   - role: ./roles/printer
-  - role: ./roles/lastpass
   - role: ./roles/expressvpn
   - role: ./roles/dev
   - role: ./roles/redshift
   - role: ./roles/intellij-kotlin
   - role: ./roles/vscode-python
   - role: ./roles/nodejs
-  - role: ./roles/k8s
   - role: ./roles/gcloud
   - role: ./roles/chromium-browser
   - role: ./roles/firefox
+  - role: ./roles/lastpass
 
