@@ -26,6 +26,10 @@
     value_type: int
     value: '0'
 
+- name: XFCE Config - remove second panel
+  command:
+    cmd: xfconf-query -c xfce4-panel -p /panels -s 1 -t int -a
+
 - name: XFCE Config - capslock is a second ctrl
   lineinfile:
     dest: "/home/{{ ansible_user_id }}/.bash_profile"
@@ -58,6 +62,7 @@
     - { prop: '/commands/custom/<Super>F3', val: 'amixer set Master 5%+' }
     - { prop: '/commands/custom/<Super>numbersign', val: 'xrandr --output eDP-1 --off' }
     - { prop: '/commands/custom/<Shift><Super>asciitilde', val: 'xrandr --output eDP-1 --off' }
+    - { prop: '/commands/custom/Print', val: 'xfce4-screenshooter -r -c' }
     - prop: '/commands/custom/<Super>v'
       val: sh -c 'sleep 0.2; xdotool type --clearmodifiers "$(xclip -o -selection clipboard)"'
 
