@@ -12,7 +12,9 @@
   - role: ./roles/vscode-python
   - role: ./roles/nodejs
   - role: ./roles/gcloud
+  - role: ./roles/k8s
   - role: ./roles/chromium-browser
   - role: ./roles/firefox
   - role: ./roles/lastpass
+  - role: ./roles/slack
 
