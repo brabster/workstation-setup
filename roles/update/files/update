@@ -2,6 +2,6 @@
 
 sudo dnf update
 
-fwupdmgr refresh
-fwupdmgr get-updates
+fwupdmgr refresh || true
+fwupdmgr get-updates || true
 fwupdmgr update
