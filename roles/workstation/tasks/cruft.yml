@@ -46,7 +46,6 @@
       - ModemManager
       - nfs-utils
       - opensc
-      - openvpn
       - orage
       - pinentry
       - pipewire
