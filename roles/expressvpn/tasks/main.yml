@@ -8,14 +8,8 @@
   become: yes
   sefcontext:
     target: '/var/lib/expressvpn/resolv.conf'
-    setype: "{{ item }}"
+    setype: net_conf_t
     state: present
-  loop:
-    - net_conf_t # for NetworkManager
-    - dnsmasq_exec_t # for dnsmasq
-    - named_exec_t # for unbound-anchor
-    - chronyd_exec_t # for chronyd
-
 
 
 # - name: Install ExpressVPN RPM key
