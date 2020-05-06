@@ -1,0 +1,22 @@
+---
+- name: Disable screen lock fade
+  lineinfile:
+    path: ~/.xscreensaver
+    state: present
+    regexp: '^fade:'
+    line: 'fade: False'
+
+- name: Enable screen lock power management
+  lineinfile:
+    path: ~/.xscreensaver
+    state: present
+    regexp: '^dpmsEnabled:'
+    line: 'dpmsEnabled: True'
+
+- name: Enable screen lock immediate power off
+  lineinfile:
+    path: ~/.xscreensaver
+    state: present
+    regexp: '^dpmsQuickOff:'
+    line: 'dpmsQuickOff: True'
+ 
