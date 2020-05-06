@@ -20,5 +20,5 @@ sudo dnf install -y git ansible &&
 
 - `cat ~/Downloads/eicar.com` (should fail with permissions issue)
 - `cat ~/.ssh/id_ssh.pub` Add new SSH key to Github, remove old key
-- `expressvpn activate`, `expressvpn autoconnect`
+- `expressvpn activate`, `expressvpn autoconnect true`
 - Log into LastPass, set autofill to false
