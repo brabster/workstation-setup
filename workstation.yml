@@ -17,4 +17,5 @@
   - role: ./roles/firefox
   - role: ./roles/lastpass
   - role: ./roles/slack
+  - role: ./roles/argocli
 

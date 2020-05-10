@@ -1,0 +1,12 @@
+#!/bin/bash -eu
+
+if [ "$(type -t docker)" != "alias" ] && [ "$(type -t docker)" != "" ]; then
+    DOCKER_CMD=docker
+elif [ "$(type -t podman)" != "" ]; then
+    DOCKER_CMD=podman
+else
+    echo "Unable to find docker or podman"
+    exit -1
+fi
+
+${DOCKER_CMD} run --rm -it -v $(pwd):/work argoproj/argocli:v${ARGO_VERSION:-latest} "$@"
