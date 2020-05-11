@@ -21,7 +21,7 @@
 
 - name: XFCE Config - remove unused workspaces
   xfconf:
-    channel: fwm4
+    channel: xfwm4
     property: /general/workspace_count
     value_type: int
     value: '0'
