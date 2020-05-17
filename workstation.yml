@@ -2,6 +2,7 @@
 - hosts: localhost
   become_method: sudo
   roles:
+  - role: ./roles/cgroups
   - role: ./roles/workstation
   - role: ./roles/clamav
   - role: ./roles/printer

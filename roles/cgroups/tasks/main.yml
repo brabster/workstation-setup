@@ -1,0 +1,9 @@
+---
+# tasks file for cgroups
+- include_role:
+    name: jtyr.grub_cmdline
+    apply:
+      vars:
+        ansible_become: yes
+        grub_cmdline_add_args:
+          - systemd.unified_cgroup_hierarchy=0
