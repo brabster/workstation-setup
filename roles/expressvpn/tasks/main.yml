@@ -22,3 +22,9 @@
     name: 'https://download.expressvpn.xyz/clients/linux/expressvpn-2.4.5.2-1.x86_64.rpm'
     state: present
 
+- name: 
+  lineinfile:
+    path: ~/.bash_profile
+    regexp: 'expressvpn connect'
+    line: 'expressvpn connect'
+
