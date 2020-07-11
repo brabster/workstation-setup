@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+TARGET_CTX=$1
+
+if [ -z "$TARGET_CTX" ]; then
+    kubectl config current-context
+else
+    kubectl config use-context $TARGET_CTX
+fi

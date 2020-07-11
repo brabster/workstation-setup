@@ -21,3 +21,9 @@
   lineinfile:
     path: ~/.bashrc
     line: source <(kubectl completion bash)
+
+- name: Copy kx script
+  copy:
+    src: kx
+    dest: ~/bin/kx
+    mode: '0755'

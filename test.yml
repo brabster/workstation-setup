@@ -2,4 +2,4 @@
 - hosts: localhost
   become_method: sudo
   roles:
-  - role: ./roles/terraform
+  - role: ./roles/k8s
