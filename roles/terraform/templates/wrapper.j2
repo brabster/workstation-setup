@@ -1,0 +1,3 @@
+#!/bin/bash -eu
+
+docker run --rm -it -w /work -v $(pwd):/work:Z --user $(id -u):$(id -g) {{ docker_image }}:{{ docker_tag }} "$@"

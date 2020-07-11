@@ -5,6 +5,7 @@
   - role: ./roles/cgroups
   - role: ./roles/workstation
   - role: ./roles/clamav
+  - role: ./roles/docker
   - role: ./roles/printer
   - role: ./roles/expressvpn
   - role: ./roles/dev
@@ -19,4 +20,6 @@
   - role: ./roles/lastpass
   - role: ./roles/slack
   - role: ./roles/argocli
+  - role: ./roles/helm
+  - role: ./roles/terraform
 

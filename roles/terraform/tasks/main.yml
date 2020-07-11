@@ -1,0 +1,13 @@
+---
+# tasks file for roles/terraform
+- name: Copy terraform wrapper script
+  template:
+    src: wrapper.j2
+    dest: ~/bin/{{ script_name }}
+    mode: '0755'
+
+- name: Check for updates
+  lineinfile:
+    path: ~/bin/update
+    line: docker pull {{ docker_image }}:{{ docker_tag}}
+

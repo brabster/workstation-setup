@@ -4,4 +4,3 @@
 - include: xscreensaver.yml
 - include: tools.yml
 - include: security.yml
-- include: podman.yml

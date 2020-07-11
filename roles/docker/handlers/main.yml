@@ -1,0 +1,5 @@
+---
+# handlers file for docker
+# based on https://github.com/geerlingguy/ansible-role-docker/blob/master/handlers/main.yml
+- name: restart docker
+  service: "name=docker state={{ docker_restart_handler_state }}"

@@ -1,13 +1,19 @@
 ---
 # tasks file for argocli
 - name: Copy argocli wrapper script
-  copy:
-    src: argo
+  template:
+    src: argo.j2
     dest: ~/bin/argo
     mode: '0755'
 
-- name: 
+- name: Check for updates
   lineinfile:
-    path: ~/.bash_profile
-    regexp: 'export ARGO_VERSION='
-    line: 'export ARGO_VERSION=2.7.7'
+    path: ~/bin/update
+    line: docker pull {{ argo_docker_image }}
+
+# - name: Enable bash completion
+#   lineinfile:
+#     path: ~/.bashrc
+#     line: 'source <(argo completion bash)'
+    
+

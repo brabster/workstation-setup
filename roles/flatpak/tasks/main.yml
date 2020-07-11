@@ -16,5 +16,4 @@
 - name: Setup flatpak updates
   lineinfile:
     path: ~/bin/update
-    regexp: 'flatpak update'
     line: flatpak update

@@ -1,0 +1,5 @@
+---
+# vars file for roles/terraform
+docker_tag: 0.12.25
+docker_image: hashicorp/terraform
+script_name: terraform

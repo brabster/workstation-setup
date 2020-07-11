@@ -1,0 +1,19 @@
+---
+# tasks file for argocli
+- name: Copy argocli wrapper script
+  template:
+    src: helm.j2
+    dest: ~/bin/helm
+    mode: '0755'
+
+- name: Check for updates
+  lineinfile:
+    path: ~/bin/update
+    line: docker pull {{ helm_docker_image }}
+
+- name: Enable bash completion
+  lineinfile:
+    path: ~/.bashrc
+    line: 'source <(helm completion bash)'
+    
+

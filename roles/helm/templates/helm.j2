@@ -1,0 +1,3 @@
+#!/bin/bash -eu
+
+docker run --rm -it -v $(pwd):/apps:Z -v ~/.kube:/root/.kube -v ~/.helm:/root/.helm --user $(id -u):$(id -g) {{ helm_docker_image }} "$@"
