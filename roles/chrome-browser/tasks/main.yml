@@ -2,10 +2,29 @@
 # tasks file for chrome-browser
 - name: Add Google Chrome repo
   become: true
-  package: name=fedora-workstation-repositories state=present
+  package:
+    name: fedora-workstation-repositories
+    state: present
+
 - name: Enable Google Chrome repo
   become: true
   command: dnf config-manager --set-enabled google-chrome
+
 - name: Add Google Chrome Stable
   become: true
-  package: name=google-chrome-stable state=present
+  package:
+    name: google-chrome-stable
+    state: present
+
+- name: Configure Chrome Browser
+  become: true
+  copy:
+    src: chrome-prefs.json
+    dest: /etc/opt/chrome/policies/managed/prefs.json
+
+- name: Disable password store for Chrome
+  become: true
+  replace:
+    path: /usr/share/applications/google-chrome.desktop
+    regexp: '^Exec=/usr/bin/google-chrome-stable'
+    replace: 'Exec=/usr/bin/google-chrome-stable --password-store=basic'
