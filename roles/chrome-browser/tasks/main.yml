@@ -28,3 +28,10 @@
     path: /usr/share/applications/google-chrome.desktop
     regexp: '^Exec=/usr/bin/google-chrome-stable'
     replace: 'Exec=/usr/bin/google-chrome-stable --password-store=basic'
+
+- name: Chrome as default browser
+  loop:
+  - http
+  - https
+  shell: gio mime x-scheme-handler/"{{ item }}" google-chrome.desktop
+
