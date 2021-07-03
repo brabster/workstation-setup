@@ -21,12 +21,11 @@
 - name: Generate SSH key
   openssh_keypair:
     path: "{{ ansible_env.HOME }}/.ssh/id_ssh"
-    type: rsa
-    size: 2048
+    type: ed25519
 
 - name: Add SSH key to ssh-agent on login
   lineinfile:
-    path: ~/.bash_profile
+    path: ~/.profile
     line: ssh-add ~/.ssh/id_ssh
 
 - name: Add SSH for this session
@@ -34,7 +33,7 @@
 
 - name: Install general cli tools
   become: yes
-  dnf:
+  package:
     name:
       - jq
       - httpie

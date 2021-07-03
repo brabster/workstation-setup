@@ -2,24 +2,9 @@
 - hosts: localhost
   become_method: sudo
   roles:
-  - role: ./roles/cgroups
   - role: ./roles/workstation
-  - role: ./roles/clamav
-  - role: ./roles/docker
-  - role: ./roles/printer
-  - role: ./roles/expressvpn
   - role: ./roles/dev
-  - role: ./roles/redshift
-  - role: ./roles/intellij-kotlin
-  - role: ./roles/vscode-python
-  - role: ./roles/nodejs
-  - role: ./roles/gcloud
   - role: ./roles/k8s
   - role: ./roles/chrome-browser
-  - role: ./roles/firefox
   - role: ./roles/lastpass
-  - role: ./roles/slack
-  - role: ./roles/argocli
-  - role: ./roles/helm
-  - role: ./roles/terraform
 

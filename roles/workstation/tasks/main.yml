@@ -1,6 +1,4 @@
 ---
-- include: cruft.yml
 - include: xfce.yml
 - include: xscreensaver.yml
-- include: tools.yml
 - include: security.yml
