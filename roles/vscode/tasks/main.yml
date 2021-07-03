@@ -1,0 +1,5 @@
+---
+# tasks file for vscode
+- name: Install VSCode
+  become: yes
+  command: snap install code --classic

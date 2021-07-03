@@ -1,7 +1,5 @@
 ---
 # tasks file for slack
 - name: Install Slack
-  flatpak:
-    name: com.slack.Slack
-    state: present
-    method: user
+  become: yes
+  command: snap install slack --classic

@@ -6,5 +6,6 @@
   - role: ./roles/dev
   - role: ./roles/k8s
   - role: ./roles/chrome-browser
-  - role: ./roles/lastpass
+  - role: ./roles/slack
+  - role: ./roles/vscode
 
